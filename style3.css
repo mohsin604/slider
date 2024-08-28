@@ -1,0 +1,195 @@
+body{
+    background-color:#292929;
+    padding: 0%;
+    margin: 0%;
+}
+.container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+.product-slider {
+	color: white;
+	margin-top: 60px;
+	width: 80%;
+	gap: 20px;
+	/* max-width: 1200px; */
+	/* display: flex; */
+}
+ 
+ .product-slider .title-and-controls {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    flex-direction: row;
+ }
+ 
+ .product-slider .buttons-container {
+    display: flex;
+    justify-content: space-between;
+    /* margin-bottom: 20px; */
+ }
+ 
+ .product-slider .title-and-controls button {
+    background-color: transparent;
+    border: 2px solid;
+    border-radius: 999px;
+    color: white;
+    cursor: pointer;
+    height: 38px;
+    width: 38px;
+    margin: 0 4px;
+    position: relative;
+    transition: transform 0.3s ease-out;
+ }
+ 
+ .product-slider .title-and-controls button:hover {
+    transform: scale(1.3);
+ }
+ 
+ .product-slider .title-and-controls button svg {
+    height: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16px;
+    transition:3s;
+ }
+ 
+ .product-slider #titles-container {
+    position: relative;
+    /* flex-grow: 1; */
+    margin-right: 40px;
+ }
+ 
+ .product-slider #titles-container h3 {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    /* transform: translateY(-100%); */
+    transition: all 0.3s ease-out;
+    font-size: 2.81rem;
+ }
+ 
+ .product-slider #titles-container h3.active {
+    position: static;
+    opacity: 1;
+    transform: translateY(0);
+ }
+ 
+ .product-slider #descriptions-container {
+    width: 50%;
+    position: relative;
+ }
+ 
+ .product-slider #descriptions-container p {
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    /*transform: translateY(100%);*/
+    transition: all 0.3s ease-out;
+ }
+ 
+ .product-slider #descriptions-container p.active {
+    position: static;
+    opacity: 1;
+    transform: translateY(0);
+ }
+ 
+ .product-slider .images-container {
+    height: 200px;
+    width: 50%;
+    /* overflow: hidden; */
+ }
+ 
+ .product-slider .images-container .carousel {
+    position: relative;
+    width: 100%;
+ 
+    overflow-x: visible;
+ }
+ 
+ .product-slider .images-container .carousel img {
+    height: 200px;
+    width: auto;
+    transition: all 0.4s ease-in-out;
+    z-index: 0;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* transform: translate(200%, -40%) scale(0.1); */
+    opacity: 0;
+ }
+ 
+ /* Opacity and Z-index */
+ 
+ /* Second and forth */
+ .product-slider .images-container .carousel img.next {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(100%, -30%) scale(0.8);
+    /* filter: blur(4px); */
+    opacity: 0.6;
+    z-index: 1;
+    filter: drop-shadow(5px 48px 14px #000) blur(4px);
+ }
+ 
+ /* Middle */
+ .product-slider .images-container .carousel img.current {
+    display: block;
+    opacity: 1;
+    transform: none;
+    z-index: 5;
+    filter: drop-shadow(5px 50px 37px #000) blur(0px);
+ }
+ 
+ .product-slider .images-container .carousel img.previous {
+    display: block;
+    opacity: 0;
+    /*! transform: scale(0.4); */
+    filter: blur (8px);
+    z-index: -1;
+ }
+ 
+ .description-and-images {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+ }
+ @media screen and (max-width: 768px) {
+    .full-on-small {
+       width: 100% !important;
+    }
+ 
+    .description-and-images {
+       flex-direction: column-reverse;
+    }
+ 
+    .product-slider #descriptions-container {
+       width: 100%;
+    }
+ 
+    .product-slider .images-container {
+       width: 100%;
+    }
+ 
+    .product-slider .images-container .carousel img.current {
+       max-width: 100%;
+       height: auto;
+       max-height: 200px;
+       left: 50%;
+       transform: translateX(-50%);
+    }
+    .product-slider .images-container .carousel img.next {
+       transform: translate(80%, -30%) scale(0.6);
+    }
+ }
